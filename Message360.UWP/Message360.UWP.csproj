@@ -9,7 +9,7 @@
     <RootNamespace>message360</RootNamespace>
     <AssemblyName>Message360.UWP</AssemblyName>
     <OutputType>Library</OutputType>
-    <ProjectGuid>{c1146f8b-505f-4ee1-8061-5381a0f75e24}</ProjectGuid>
+    <ProjectGuid>{92ea3788-b3cd-4b46-a16d-0c95f7a31d0b}</ProjectGuid>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
