@@ -17,32 +17,16 @@ using message360.Utilities;
 
 namespace message360.Models
 {
-    public class CreateVerifyNumberInput : BaseModel 
+    public class CreateListTemplatesInput : BaseModel 
     {
         // These fields hold the values for the public properties.
-        private string phonenumber;
-        private string type;
+        private string type = "authorization";
+        private int? page;
+        private int? pagesize = 10;
         private string responseType = "json";
 
         /// <summary>
-        /// TODO: Write general description for this method
-        /// </summary>
-        [JsonProperty("phonenumber")]
-        public string Phonenumber 
-        { 
-            get 
-            {
-                return this.phonenumber; 
-            } 
-            set 
-            {
-                this.phonenumber = value;
-                onPropertyChanged("Phonenumber");
-            }
-        }
-
-        /// <summary>
-        /// TODO: Write general description for this method
+        /// The type (category) of template Valid values: marketing, authorization
         /// </summary>
         [JsonProperty("type")]
         public string Type 
@@ -59,7 +43,41 @@ namespace message360.Models
         }
 
         /// <summary>
-        /// Response Type either json or xml
+        /// The page count to retrieve from the total results in the collection. Page indexing starts at 1.
+        /// </summary>
+        [JsonProperty("page")]
+        public int? Page 
+        { 
+            get 
+            {
+                return this.page; 
+            } 
+            set 
+            {
+                this.page = value;
+                onPropertyChanged("Page");
+            }
+        }
+
+        /// <summary>
+        /// The count of objects to return per page.
+        /// </summary>
+        [JsonProperty("pagesize")]
+        public int? Pagesize 
+        { 
+            get 
+            {
+                return this.pagesize; 
+            } 
+            set 
+            {
+                this.pagesize = value;
+                onPropertyChanged("Pagesize");
+            }
+        }
+
+        /// <summary>
+        /// Response type format xml or json
         /// </summary>
         [JsonProperty("ResponseType")]
         public string ResponseType 

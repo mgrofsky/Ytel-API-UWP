@@ -17,116 +17,116 @@ using message360.Utilities;
 
 namespace message360.Models
 {
-    public class CreatePlayAudioInput : BaseModel 
+    public class CreateSendShortCodeInput : BaseModel 
     {
         // These fields hold the values for the public properties.
-        private string callSid;
-        private string audioUrl;
-        private int? length;
-        private Models.Direction? direction;
-        private bool? loop;
-        private bool? mix;
+        private string shortcode;
+        private string tocountrycode = "1";
+        private string to;
+        private Guid templateid;
+        private string method = "GET";
+        private string messageStatusCallback;
         private string responseType = "json";
 
         /// <summary>
-        /// The unique identifier of each call resource
+        /// The Short Code number that is the sender of this message
         /// </summary>
-        [JsonProperty("CallSid")]
-        public string CallSid 
+        [JsonProperty("shortcode")]
+        public string Shortcode 
         { 
             get 
             {
-                return this.callSid; 
+                return this.shortcode; 
             } 
             set 
             {
-                this.callSid = value;
-                onPropertyChanged("CallSid");
+                this.shortcode = value;
+                onPropertyChanged("Shortcode");
             }
         }
 
         /// <summary>
-        /// URL to sound that should be played. You also can add more than one audio file using semicolons e.g. http://example.com/audio1.mp3;http://example.com/audio2.wav
+        /// The country code for sending this message
         /// </summary>
-        [JsonProperty("AudioUrl")]
-        public string AudioUrl 
+        [JsonProperty("tocountrycode")]
+        public string Tocountrycode 
         { 
             get 
             {
-                return this.audioUrl; 
+                return this.tocountrycode; 
             } 
             set 
             {
-                this.audioUrl = value;
-                onPropertyChanged("AudioUrl");
+                this.tocountrycode = value;
+                onPropertyChanged("Tocountrycode");
             }
         }
 
         /// <summary>
-        /// Time limit in seconds for audio play back
+        /// A valid 10-digit number that should receive the message+
         /// </summary>
-        [JsonProperty("Length")]
-        public int? Length 
+        [JsonProperty("to")]
+        public string To 
         { 
             get 
             {
-                return this.length; 
+                return this.to; 
             } 
             set 
             {
-                this.length = value;
-                onPropertyChanged("Length");
+                this.to = value;
+                onPropertyChanged("To");
             }
         }
 
         /// <summary>
-        /// The leg of the call audio will be played to
+        /// The unique identifier for the template used for the message
         /// </summary>
-        [JsonProperty("Direction", ItemConverterType = typeof(StringValuedEnumConverter))]
-        public Models.Direction? Direction 
+        [JsonProperty("templateid")]
+        public Guid Templateid 
         { 
             get 
             {
-                return this.direction; 
+                return this.templateid; 
             } 
             set 
             {
-                this.direction = value;
-                onPropertyChanged("Direction");
+                this.templateid = value;
+                onPropertyChanged("Templateid");
             }
         }
 
         /// <summary>
-        /// Repeat audio playback indefinitely
+        /// Specifies the HTTP method used to request the required URL once the Short Code message is sent.
         /// </summary>
-        [JsonProperty("Loop")]
-        public bool? Loop 
+        [JsonProperty("Method")]
+        public string Method 
         { 
             get 
             {
-                return this.loop; 
+                return this.method; 
             } 
             set 
             {
-                this.loop = value;
-                onPropertyChanged("Loop");
+                this.method = value;
+                onPropertyChanged("Method");
             }
         }
 
         /// <summary>
-        /// If false, all other audio will be muted
+        /// URL that can be requested to receive notification when Short Code message was sent.
         /// </summary>
-        [JsonProperty("Mix")]
-        public bool? Mix 
+        [JsonProperty("MessageStatusCallback")]
+        public string MessageStatusCallback 
         { 
             get 
             {
-                return this.mix; 
+                return this.messageStatusCallback; 
             } 
             set 
             {
-                this.mix = value;
-                onPropertyChanged("Mix");
+                this.messageStatusCallback = value;
+                onPropertyChanged("MessageStatusCallback");
             }
         }
 

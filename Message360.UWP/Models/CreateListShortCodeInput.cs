@@ -17,19 +17,20 @@ using message360.Utilities;
 
 namespace message360.Models
 {
-    public class CreateListAddressInput : BaseModel 
+    public class CreateListShortCodeInput : BaseModel 
     {
         // These fields hold the values for the public properties.
-        private int? page = 1;
-        private int? pageSize = 10;
-        private string addressSID;
-        private string dateCreated;
+        private int? page;
+        private int? pagesize = 10;
+        private string mfrom;
+        private string to;
+        private string datesent;
         private string responseType = "json";
 
         /// <summary>
-        /// Return requested # of items starting the value, default=0, must be an integer
+        /// Which page of the overall response will be returned. Zero indexed
         /// </summary>
-        [JsonProperty("Page")]
+        [JsonProperty("page")]
         public int? Page 
         { 
             get 
@@ -44,58 +45,75 @@ namespace message360.Models
         }
 
         /// <summary>
-        /// How many results to return, default is 10, max is 100, must be an integer
+        /// Number of individual resources listed in the response per page
         /// </summary>
-        [JsonProperty("PageSize")]
-        public int? PageSize 
+        [JsonProperty("pagesize")]
+        public int? Pagesize 
         { 
             get 
             {
-                return this.pageSize; 
+                return this.pagesize; 
             } 
             set 
             {
-                this.pageSize = value;
-                onPropertyChanged("PageSize");
+                this.pagesize = value;
+                onPropertyChanged("Pagesize");
             }
         }
 
         /// <summary>
-        /// addresses Sid
+        /// Messages sent from this number
         /// </summary>
-        [JsonProperty("AddressSID")]
-        public string AddressSID 
+        [JsonProperty("from")]
+        public string From 
         { 
             get 
             {
-                return this.addressSID; 
+                return this.mfrom; 
             } 
             set 
             {
-                this.addressSID = value;
-                onPropertyChanged("AddressSID");
+                this.mfrom = value;
+                onPropertyChanged("From");
             }
         }
 
         /// <summary>
-        /// date created address.
+        /// Messages sent to this number
         /// </summary>
-        [JsonProperty("DateCreated")]
-        public string DateCreated 
+        [JsonProperty("to")]
+        public string To 
         { 
             get 
             {
-                return this.dateCreated; 
+                return this.to; 
             } 
             set 
             {
-                this.dateCreated = value;
-                onPropertyChanged("DateCreated");
+                this.to = value;
+                onPropertyChanged("To");
             }
         }
 
         /// <summary>
-        /// Response Type either json or xml
+        /// Only list SMS messages sent in the specified date range
+        /// </summary>
+        [JsonProperty("datesent")]
+        public string Datesent 
+        { 
+            get 
+            {
+                return this.datesent; 
+            } 
+            set 
+            {
+                this.datesent = value;
+                onPropertyChanged("Datesent");
+            }
+        }
+
+        /// <summary>
+        /// Response type format xml or json
         /// </summary>
         [JsonProperty("ResponseType")]
         public string ResponseType 

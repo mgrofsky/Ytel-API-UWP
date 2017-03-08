@@ -17,19 +17,20 @@ using message360.Utilities;
 
 namespace message360.Models
 {
-    public class CreateListAddressInput : BaseModel 
+    public class CreateListInboundShortCodeInput : BaseModel 
     {
         // These fields hold the values for the public properties.
-        private int? page = 1;
-        private int? pageSize = 10;
-        private string addressSID;
-        private string dateCreated;
+        private int? page;
+        private int? pagesize = 10;
+        private string mfrom;
+        private string shortcode;
+        private string dateReceived;
         private string responseType = "json";
 
         /// <summary>
-        /// Return requested # of items starting the value, default=0, must be an integer
+        /// Which page of the overall response will be returned. Zero indexed
         /// </summary>
-        [JsonProperty("Page")]
+        [JsonProperty("page")]
         public int? Page 
         { 
             get 
@@ -44,58 +45,75 @@ namespace message360.Models
         }
 
         /// <summary>
-        /// How many results to return, default is 10, max is 100, must be an integer
+        /// Number of individual resources listed in the response per page
         /// </summary>
-        [JsonProperty("PageSize")]
-        public int? PageSize 
+        [JsonProperty("pagesize")]
+        public int? Pagesize 
         { 
             get 
             {
-                return this.pageSize; 
+                return this.pagesize; 
             } 
             set 
             {
-                this.pageSize = value;
-                onPropertyChanged("PageSize");
+                this.pagesize = value;
+                onPropertyChanged("Pagesize");
             }
         }
 
         /// <summary>
-        /// addresses Sid
+        /// From Number to Inbound ShortCode
         /// </summary>
-        [JsonProperty("AddressSID")]
-        public string AddressSID 
+        [JsonProperty("from")]
+        public string From 
         { 
             get 
             {
-                return this.addressSID; 
+                return this.mfrom; 
             } 
             set 
             {
-                this.addressSID = value;
-                onPropertyChanged("AddressSID");
+                this.mfrom = value;
+                onPropertyChanged("From");
             }
         }
 
         /// <summary>
-        /// date created address.
+        /// Only list messages sent to this Short Code
         /// </summary>
-        [JsonProperty("DateCreated")]
-        public string DateCreated 
+        [JsonProperty("Shortcode")]
+        public string Shortcode 
         { 
             get 
             {
-                return this.dateCreated; 
+                return this.shortcode; 
             } 
             set 
             {
-                this.dateCreated = value;
-                onPropertyChanged("DateCreated");
+                this.shortcode = value;
+                onPropertyChanged("Shortcode");
             }
         }
 
         /// <summary>
-        /// Response Type either json or xml
+        /// Only list messages sent with the specified date
+        /// </summary>
+        [JsonProperty("DateReceived")]
+        public string DateReceived 
+        { 
+            get 
+            {
+                return this.dateReceived; 
+            } 
+            set 
+            {
+                this.dateReceived = value;
+                onPropertyChanged("DateReceived");
+            }
+        }
+
+        /// <summary>
+        /// Response type format xml or json
         /// </summary>
         [JsonProperty("ResponseType")]
         public string ResponseType 

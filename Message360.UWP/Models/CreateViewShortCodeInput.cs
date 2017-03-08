@@ -17,49 +17,31 @@ using message360.Utilities;
 
 namespace message360.Models
 {
-    public class CreateVerifyNumberInput : BaseModel 
+    public class CreateViewShortCodeInput : BaseModel 
     {
         // These fields hold the values for the public properties.
-        private string phonenumber;
-        private string type;
+        private string messagesid;
         private string responseType = "json";
 
         /// <summary>
-        /// TODO: Write general description for this method
+        /// Message sid
         /// </summary>
-        [JsonProperty("phonenumber")]
-        public string Phonenumber 
+        [JsonProperty("messagesid")]
+        public string Messagesid 
         { 
             get 
             {
-                return this.phonenumber; 
+                return this.messagesid; 
             } 
             set 
             {
-                this.phonenumber = value;
-                onPropertyChanged("Phonenumber");
+                this.messagesid = value;
+                onPropertyChanged("Messagesid");
             }
         }
 
         /// <summary>
-        /// TODO: Write general description for this method
-        /// </summary>
-        [JsonProperty("type")]
-        public string Type 
-        { 
-            get 
-            {
-                return this.type; 
-            } 
-            set 
-            {
-                this.type = value;
-                onPropertyChanged("Type");
-            }
-        }
-
-        /// <summary>
-        /// Response Type either json or xml
+        /// Response type format xml or json
         /// </summary>
         [JsonProperty("ResponseType")]
         public string ResponseType 

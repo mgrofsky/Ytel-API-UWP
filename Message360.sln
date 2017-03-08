@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message360.UWP", "Message360.UWP/Message360.UWP.csproj", "{92ea3788-b3cd-4b46-a16d-0c95f7a31d0b}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message360.UWP", "Message360.UWP/Message360.UWP.csproj", "{a4f32711-985c-414b-80a0-07583e3cb9f9}"
 EndProject
 Global
     GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
         Release|x86 = Release|x86
     EndGlobalSection
     GlobalSection(ProjectConfigurationPlatforms) = postSolution
-        {92ea3788-b3cd-4b46-a16d-0c95f7a31d0b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {92ea3788-b3cd-4b46-a16d-0c95f7a31d0b}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {92ea3788-b3cd-4b46-a16d-0c95f7a31d0b}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {92ea3788-b3cd-4b46-a16d-0c95f7a31d0b}.Release|Any CPU.Build.0 = Release|Any CPU
+        {a4f32711-985c-414b-80a0-07583e3cb9f9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {a4f32711-985c-414b-80a0-07583e3cb9f9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {a4f32711-985c-414b-80a0-07583e3cb9f9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {a4f32711-985c-414b-80a0-07583e3cb9f9}.Release|Any CPU.Build.0 = Release|Any CPU
     EndGlobalSection
     GlobalSection(SolutionProperties) = preSolution
         HideSolutionNode = FALSE
