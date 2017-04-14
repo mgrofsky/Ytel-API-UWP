@@ -8,41 +8,38 @@ using System.Linq;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using message360;
-using message360.Utilities;
+using APIMATIC.SDK.Common;
 
 namespace message360.Models
 {
     [JsonConverter(typeof(StringValuedEnumConverter))]
-    public enum Status
+    public enum InterruptedCallStatusEnum
     {
-        INPROGRESS, //TODO: Write general description for this method
-        SUCCESS, //TODO: Write general description for this method
-        FAILURE, //TODO: Write general description for this method
+        CANCELED, //Interrupt Call will be cancel
+        COMPLETED, //Interrupt Call is complete
     }
 
     /// <summary>
-    /// Helper for the enum type Status
+    /// Helper for the enum type InterruptedCallStatusEnum
     /// </summary>
-    public static class StatusHelper
+    public static class InterruptedCallStatusEnumHelper
     {
         //string values corresponding the enum elements
-        private static List<string> stringValues = new List<string> { "inprogress", "success", "failure" };
+        private static List<string> stringValues = new List<string> { "canceled", "completed" };
 
         /// <summary>
-        /// Converts a Status value to a corresponding string value
+        /// Converts a InterruptedCallStatusEnum value to a corresponding string value
         /// </summary>
-        /// <param name="enumValue">The Status value to convert</param>
+        /// <param name="enumValue">The InterruptedCallStatusEnum value to convert</param>
         /// <returns>The representative string value</returns>
-        public static string ToValue(Status enumValue)
+        public static string ToValue(InterruptedCallStatusEnum enumValue)
         {
             switch(enumValue)
             {
                 //only valid enum elements can be used
                 //this is necessary to avoid errors
-                case Status.INPROGRESS:
-                case Status.SUCCESS:
-                case Status.FAILURE:
+                case InterruptedCallStatusEnum.CANCELED:
+                case InterruptedCallStatusEnum.COMPLETED:
                     return stringValues[(int)enumValue];
 
                 //an invalid enum value was requested
@@ -52,11 +49,11 @@ namespace message360.Models
         }
 
         /// <summary>
-        /// Convert a list of Status values to a list of strings
+        /// Convert a list of InterruptedCallStatusEnum values to a list of strings
         /// </summary>
-        /// <param name="enumValues">The list of Status values to convert</param>
+        /// <param name="enumValues">The list of InterruptedCallStatusEnum values to convert</param>
         /// <returns>The list of representative string values</returns>
-        public static List<string> ToValue(List<Status> enumValues)
+        public static List<string> ToValue(List<InterruptedCallStatusEnum> enumValues)
         {
             if (null == enumValues)
                 return null;
@@ -65,17 +62,17 @@ namespace message360.Models
         }
 
         /// <summary>
-        /// Converts a string value into Status value
+        /// Converts a string value into InterruptedCallStatusEnum value
         /// </summary>
         /// <param name="value">The string value to parse</param>
-        /// <returns>The parsed Status value</returns>
-        public static Status ParseString(string value)
+        /// <returns>The parsed InterruptedCallStatusEnum value</returns>
+        public static InterruptedCallStatusEnum ParseString(string value)
         {
             int index = stringValues.IndexOf(value);
             if(index < 0)
-                throw new InvalidCastException(string.Format("Unable to cast value: {0} to type Status", value));
+                throw new InvalidCastException(string.Format("Unable to cast value: {0} to type InterruptedCallStatusEnum", value));
 
-            return (Status) index;
+            return (InterruptedCallStatusEnum) index;
         }
     }
 } 
