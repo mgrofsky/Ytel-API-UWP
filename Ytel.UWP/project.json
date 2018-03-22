@@ -1,0 +1,21 @@
+// Ytel.UWP
+//
+// This file was automatically generated for ytel by APIMATIC v2.0 ( https://apimatic.io )
+{
+  "dependencies": {
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "APIMATIC.SDK.Common": "2.1.0.0", // https://github.com/apimatic/SDK.Common-NET
+    "newtonsoft.json": "10.0.3"
+  },
+  "frameworks": {
+    "uap10.0": {}
+  },
+  "runtimes": {
+    "win10-arm": {},
+    "win10-arm-aot": {},
+    "win10-x86": {},
+    "win10-x86-aot": {},
+    "win10-x64": {},
+    "win10-x64-aot": {}
+  }
+}
